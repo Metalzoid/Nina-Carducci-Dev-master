@@ -69,8 +69,15 @@ body {
 
 .picture img {
 	width: 100%;
-
 }
+
+.carousel-item img {
+  display: block;
+	object-fit: cover;
+  width: 100vw;
+  height: auto;
+}
+
 #about-me {
 	flex: 2
 }
@@ -353,4 +360,3 @@ input[type="submit"] {
 		width: 80%;
 	}
 }
-
