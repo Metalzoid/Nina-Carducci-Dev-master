@@ -1,0 +1,94 @@
+/* Optimisations de lazy loading pour améliorer les performances */
+
+/* Placeholder pour les images en cours de chargement */
+.gallery-item {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  min-height: 200px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Animation de chargement */
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Effet de fade-in pour les images chargées */
+.gallery-item.loaded {
+  animation: none;
+  background: none;
+  opacity: 1;
+}
+
+/* Optimisation pour les images du carousel */
+.carousel-item img {
+  transition: opacity 0.2s ease-out;
+  opacity: 0;
+}
+
+.carousel-item img.loaded,
+.carousel-item.active img {
+  opacity: 1;
+}
+
+/* Optimisation pour les images de la section about */
+.picture img {
+  transition: opacity 0.2s ease-out;
+  opacity: 0;
+}
+
+.picture img.loaded,
+.picture img[fetchpriority="high"] {
+  opacity: 1;
+}
+
+/* Prévention du CLS avec des dimensions fixes */
+.gallery-item {
+  aspect-ratio: 1;
+}
+
+/* Optimisation pour les appareils mobiles */
+@media (max-width: 768px) {
+  .gallery-item {
+    min-height: 150px;
+  }
+
+  .carousel-item img {
+    aspect-ratio: 4/3;
+  }
+}
+
+/* Intersection Observer fallback pour les navigateurs anciens */
+@supports not (aspect-ratio: 1) {
+  .gallery-item {
+    height: 400px;
+  }
+
+  .carousel-item img {
+    height: 400px;
+  }
+}
+
+/* Optimisations LCP pour le rendu initial */
+.top-header {
+  opacity: 1 !important;
+}
+
+.top-header .name {
+  opacity: 1 !important;
+  transform: translateZ(0) !important;
+}
+
+.carousel-item.active img {
+  opacity: 1 !important;
+}
+
+.picture img[fetchpriority="high"] {
+  opacity: 1 !important;
+}

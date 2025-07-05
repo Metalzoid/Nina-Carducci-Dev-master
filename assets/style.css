@@ -3,7 +3,7 @@ body {
 	margin: auto;
 }
 * {
-	font-family: 'Inter';
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 	font-style: normal;
 }
 .top-header {
@@ -16,10 +16,15 @@ body {
 	padding-inline: 100px;
 	padding-block: 30px;
 	align-items: center;
+	will-change: transform;
+	transform: translateZ(0);
 }
 
 .top-header .name {
 	font-size: 26px;
+	font-weight: 700;
+	will-change: transform;
+	transform: translateZ(0);
 }
 
 .nav ul {
@@ -48,6 +53,8 @@ body {
 	padding-inline: 100px;
 	padding-block: 100px;
 	position: relative;
+	will-change: transform;
+	transform: translateZ(0);
 }
 
 .picture.left::before {
@@ -69,13 +76,18 @@ body {
 
 .picture img {
 	width: 100%;
+	will-change: transform;
+	transform: translateZ(0);
 }
 
 .carousel-item img {
   display: block;
 	object-fit: cover;
-  width: 100vw;
+  width: 100%;
   height: 100%;
+  max-width: 100%;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 #about-me {
@@ -87,7 +99,6 @@ body {
 	font-size: 30px;
 }
 .about-me__introduction {
-	font-family: 'Spectral';
 	font-weight: 800;
 	font-style: italic;
 	width: 60%;
@@ -98,7 +109,6 @@ body {
 }
 
 #gallery {
-	/*	min-height: 100vh; */
 }
 .title{
 	text-align: center;
@@ -136,7 +146,7 @@ body {
 .mg-prev, .mg-next {
 	width: 30px;
 	height: 30px;
-	border-radius: 00%;
+	border-radius: 0;
 	justify-content: center;
 	align-items: center;
 	display: flex;
@@ -144,20 +154,16 @@ body {
 }
 
 .quote {
-	font-family: 'Spectral';
 	font-style: italic;
 	width: 70%;
 	margin: auto;
 	padding-block: 3em;
 }
 .quote__text {
-	font-family: Spectral;
 	font-style: italic;
 	font-weight: 300;
-
 }
 .quote__author {
-	font-family: Spectral;
 	font-weight: 800;
 	font-size: 22px;
 }
@@ -229,22 +235,22 @@ form {
 	align-items: flex-start;
 }
 
-form input {
-	width: 100%;
-	background-color: transparent;
-	border: solid 1px;
-	height: 2.5em;
-	margin-bottom: 20px;
-}
-
+form input,
 form textarea {
 	width: 100%;
 	background-color: transparent;
 	border: solid 1px;
+	margin-bottom: 20px;
+}
+
+form input {
+	height: 2.5em;
+}
+
+form textarea {
 	height: 5em;
 	line-height: 2.5em;
 	font-size: 1.2em;
-	margin-bottom: 20px;
 }
 input[type="submit"] {
 	background-color: #BEB45A;
@@ -253,7 +259,7 @@ input[type="submit"] {
 
 @media all and (max-width: 1180px) {
 	.picture {
-		flex : 2;
+		flex: 2;
 	}
 	#about, #contact .container {
 		align-items: center;
@@ -262,7 +268,7 @@ input[type="submit"] {
 		margin-top: 0;
 		margin-bottom: 1em;
 	}
-	#about-me h6, #about-me p {
+	#about-me p {
 		width: 100%;
 	}
 }
@@ -307,7 +313,6 @@ input[type="submit"] {
 		bottom: 0;
 		right: 0;
 		left: auto;
-		z-index: 0;
 	}
 
 	#contact .container {
@@ -322,7 +327,6 @@ input[type="submit"] {
 		position: absolute;
 		bottom: 0;
 		right: 0;
-		z-index: -1;
 	}
 }
 
