@@ -1,0 +1,28 @@
+/* Optimisations de rendu pour tous les textes */
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prévention du CLS (Cumulative Layout Shift) avec des hauteurs de ligne fixes */
+body, h1, h2, h3, h4, h5, h6, p, span, div {
+  line-height: 1.5;
+}
+
+/* Polices de secours pour les éléments utilisant Spectral */
+.about-me__introduction,
+.quote,
+.quote__text,
+.quote__author {
+  font-family: 'Spectral', Georgia, 'Times New Roman', serif;
+}
+
+/* Optimisations LCP pour les éléments critiques */
+.top-header,
+.top-header .name,
+#about,
+.picture img,
+.carousel-item img {
+  contain: layout style paint;
+}
